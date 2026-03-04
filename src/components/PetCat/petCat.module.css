@@ -1,0 +1,29 @@
+
+.petCatBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.petHand {
+  width: 14.0625rem;
+  transition: transform 0.2s ease-in-out;
+  /* position: absolute; */
+  z-index: 99999999999;
+}
+.petHand img {
+  width: 100%;
+}
+.catImg {
+  transition: transform 0.4s ease-in-out;
+  transform-origin: bottom center;
+}
+.catImg img {
+  width: 100%;
+}
+/* ================================================================ */
+.activePetHand {
+  transform: translateY(240px); /* 아래로 30px 이동 */
+}
+.squeshCat {
+  transform: scaleY(0.7) scaleX(1.5);
+}

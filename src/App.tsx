@@ -1,35 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import styles from "./App.module.css";
+import { backgroundColorList } from "./data/backgroundColor";
+import { PetCat } from "./components/PetCat/petCat";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [changeColor, setChangeColor] = useState(0);
+  const [isMoving, setIsMoving] = useState(false);
+  
+
+  const handlePetPet = () => {
+    setChangeColor((prev) => (prev += 1) % backgroundColorList.length);
+    if (!isMoving) {
+      setIsMoving(true);
+
+      setTimeout(() => {
+        setIsMoving(false);
+      }, 200);
+    }
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div
+      className={styles.wapper}
+      style={{
+        backgroundColor: backgroundColorList[changeColor].backgroundColor,
+      }}
+    >
+      <div className={styles.petBtn} onClick={handlePetPet}>
+        쓰다듬기
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+      <div className={styles.container}>
+        {/* 쓰다듬기 버튼이랑 container랑 분리하고 싶었음 */}
+        <PetCat isMoving={isMoving} />
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
