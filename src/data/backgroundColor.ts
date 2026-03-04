@@ -3,10 +3,10 @@ interface IbackgroundColorItem {
 }
 
 export const backgroundColorList: IbackgroundColorItem[] = [
-  { backgroundColor: "#B8860B" },
-  { backgroundColor: "#E09D3A" },
-  { backgroundColor: "#E0C53A" },
-  { backgroundColor: "#E0B13A" },
-  { backgroundColor: "#E0813A" },
-  { backgroundColor: "#E0DA3A" },
+  { backgroundColor: "#a9ffb4" },
+  { backgroundColor: "#ffa41c" },
+  { backgroundColor: "#ffed92" },
+  { backgroundColor: "#ffdf90" },
+  { backgroundColor: "#fcaa6b" },
+  { backgroundColor: "#f8f5a4" },
 ];

@@ -1,4 +1,3 @@
-
 .petCatBox {
   display: flex;
   flex-direction: column;
@@ -7,7 +6,6 @@
 .petHand {
   width: 14.0625rem;
   transition: transform 0.2s ease-in-out;
-  /* position: absolute; */
   z-index: 99999999999;
 }
 .petHand img {

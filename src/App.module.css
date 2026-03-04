@@ -13,10 +13,17 @@ button {
   height: 100vh;
   display: flex;
   align-items: center;
-  transition: background 0.5s ease;
+  background-color: #a9ffb4;
 }
-.petBtn {
-  padding: 1rem;
+
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.petBtn,
+.addCatBtn {
+  padding: 0.5rem;
   border-radius: 0 20px 20px 0;
   background-color: bisque;
   cursor: pointer;
