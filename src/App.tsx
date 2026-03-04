@@ -1,6 +1,5 @@
 import { useState } from "react";
 import styles from "./App.module.css";
-import { backgroundColorList } from "./data/backgroundColor";
 import { PetCat } from "./components/PetCat/petCat";
 
 function App() {
