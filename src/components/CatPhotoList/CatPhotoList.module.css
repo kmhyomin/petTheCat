@@ -37,14 +37,12 @@
   left: 0;
   backface-visibility: visible;
   margin-top: -5rem;
-
 }
 
 .thumbnail img {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
   -webkit-user-drag: none;
 }
 .rotateThumbnail {
