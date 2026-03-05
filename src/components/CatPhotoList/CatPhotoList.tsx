@@ -14,7 +14,7 @@ export const CatPhotoList = ({ list, setCurrentCat }: ICatPhotoList) => {
   const prevRotation = useRef(0);
 
   const listLength = list.length;
-  const radius = Math.max(1, listLength * 4); //아이템 갯수에 따른 반지름
+  const radius = 16; //아이템 갯수에 따른 반지름
 
   // 드래그 시작
   const handleMouseDown = (e: React.MouseEvent) => {
@@ -30,14 +30,12 @@ export const CatPhotoList = ({ list, setCurrentCat }: ICatPhotoList) => {
     const deltaX = e.clientX - startX.current;
     setRotation(prevRotation.current + deltaX * 0.5);
   };
-  const handleMouseUp = () => {
-    setIsDragging(false);
-  };
+  const handleMouseUp = () => setIsDragging(false);
 
   return (
     <div
       className={styles.catPhotoList}
-      onMouseDown={handleMouseDown}
+      onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp}
     >
@@ -50,6 +48,9 @@ export const CatPhotoList = ({ list, setCurrentCat }: ICatPhotoList) => {
           style={{
             transform: `rotateY(${rotation})`,
             transition: isDragging ? "none" : "transform 0.5s ease-out",
+            position: "relative",
+            width: "0",
+            height: "0",
           }}
         >
           {list.map((photo, index) => {
@@ -60,7 +61,8 @@ export const CatPhotoList = ({ list, setCurrentCat }: ICatPhotoList) => {
                 key={index}
                 className={`${styles.thumbnail} ${photo.isRotate ? styles.rotateThumbnail : ""}`}
                 style={{
-                  transform: `rotateY(${itemAngle}deg) translateZ(${radius}rem)`,
+                  position: "absolute",
+                  transform: `rotate(${itemAngle}deg) translateY(-${radius}rem) rotate(-${itemAngle}deg)`,
                 }}
               >
                 <img

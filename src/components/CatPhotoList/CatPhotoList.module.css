@@ -7,13 +7,14 @@
   white-space: nowrap;
 }
 .frame {
-  height: 30rem;
   /* ////////////animation//////////////////////// */
   display: flex;
   justify-content: center;
   align-items: center;
   perspective: 1200px;
   overflow: visible;
+
+  background-color: red;
 }
 
 .tract {
@@ -35,6 +36,8 @@
   top: 0;
   left: 0;
   backface-visibility: visible;
+  margin-top: -5rem;
+
 }
 
 .thumbnail img {
@@ -45,7 +48,7 @@
   -webkit-user-drag: none;
 }
 .rotateThumbnail {
-  transform: rotate(-90deg);
+  transform: rotate(-180deg);
   aspect-ratio: 9/16;
   width: 10rem;
   height: 10rem;
