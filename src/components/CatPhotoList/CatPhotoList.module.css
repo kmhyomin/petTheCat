@@ -1,14 +1,52 @@
 .catPhotoList {
+  width: max-content;
+  height: 100%;
+}
+
+.waitForPet {
+  white-space: nowrap;
+}
+.frame {
+  height: 30rem;
+  /* ////////////animation//////////////////////// */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1200px;
+  overflow: visible;
+}
+
+.tract {
+  position: relative;
+  width: 10rem;
+  height: 16rem;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease-out;
+  padding: 0;
+}
+
+.tract li {
+  cursor: pointer;
+}
+.thumbnail {
+  width: 10rem;
+  /* ////////////animation//////////////////////// */
+  position: absolute;
+  top: 0;
+  left: 0;
+  backface-visibility: visible;
 }
 
 .thumbnail img {
   display: block;
-  width: 10rem;
-
-  max-width: 300px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  -webkit-user-drag: none;
 }
 .rotateThumbnail {
   transform: rotate(-90deg);
   aspect-ratio: 9/16;
-  max-width: 300px;
+  width: 10rem;
+  height: 10rem;
 }

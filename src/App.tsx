@@ -96,7 +96,7 @@ function App() {
           <PetCat isMoving={isMoving} catImg={currentCat} />
         </div>
       </div>
-      <div className={styles.CatPhotoList}>
+      <div className={styles.listContainer}>
         <CatPhotoList list={catPhotos} setCurrentCat={setCurrentCat} />
       </div>
     </div>

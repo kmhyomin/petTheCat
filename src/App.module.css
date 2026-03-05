@@ -13,6 +13,7 @@ button {
   height: 100vh;
   display: flex;
   align-items: center;
+  /* justify-content: space-between; */
   background-color: #a9ffb4;
   overflow: hidden;
 }
@@ -43,6 +44,7 @@ button {
   justify-content: center;
   align-items: center;
 }
+.listContainer{}
 
 .thumbnail {
   width: 50px;
