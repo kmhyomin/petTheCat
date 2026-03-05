@@ -8,17 +8,21 @@ interface ICatPhotoList {
 
 export const CatPhotoList = ({ list, setCurrentCat }: ICatPhotoList) => {
   return (
-    <div className={styles.catPhotoList}>
-      {list.map((photo, index) => (
-        <img
-          key={index}
-          src={photo.url}
-          className={styles.thumbnail}
-          //   onClick={() => setCurrentCat}
-          onClick={() => setCurrentCat(photo.url)}
-          alt={photo.name}
-        />
-      ))}
+    <div className={styles.frame}>
+      <ul className={styles.catPhotoList}>
+        {list.map((photo, index) => (
+          <li
+            key={index}
+            className={`${styles.thumbnail} ${photo.isRotate ? styles.rotateThumbnail : ""}`}
+          >
+            <img
+              src={photo.url}
+              onClick={() => setCurrentCat(photo.url)}
+              alt={photo.name}
+            />
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

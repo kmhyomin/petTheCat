@@ -1,0 +1,14 @@
+.catPhotoList {
+}
+
+.thumbnail img {
+  display: block;
+  width: 10rem;
+
+  max-width: 300px;
+}
+.rotateThumbnail {
+  transform: rotate(-90deg);
+  aspect-ratio: 9/16;
+  max-width: 300px;
+}

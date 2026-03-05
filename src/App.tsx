@@ -6,6 +6,7 @@ import { CatPhotoList } from "./components/CatPhotoList/CatPhotoList";
 export interface ICatPhoto {
   name: string;
   url: string;
+  isRotate: boolean;
 }
 
 function App() {
@@ -23,26 +24,51 @@ function App() {
       }, 200);
     }
   };
+  const getImgWH = useCallback(
+    (file: File): Promise<{ width: number; height: number }> => {
+      return new Promise((resolve, reject) => {
+        const render = new FileReader();
 
-  const handleFileUpload = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      const files = e.currentTarget.files;
-      //e.currentTarget => input
-      if (files) {
-        const filesArray = Array.from(files);
-        console.log("filesArray : ", filesArray);
+        render.onload = (e) => {
+          const img = new Image();
 
-        const previewData = filesArray.map((file) => {
-          return {
-            name: file.name,
-            url: URL.createObjectURL(file),
+          img.onload = () => {
+            resolve({ width: img.width, height: img.height });
           };
-        });
-        setCatPhotos((prev) => [...prev, ...previewData]);
-        e.target.value = "";
-      }
+          img.onerror = () =>
+            reject("이미지의 width와 height를 읽어올 수 없습니다.");
+          img.src = e.target?.result as string;
+        };
+        render.readAsDataURL(file);
+      });
     },
     [],
+  );
+
+  const handleFileUpload = useCallback(
+    async (e: React.ChangeEvent<HTMLInputElement>) => {
+      const files = e.currentTarget.files;
+      if (!files) return;
+
+      //e.currentTarget => input
+
+      const filesArray = Array.from(files);
+      const previewPhotoDate: ICatPhoto[] = [];
+
+      for (const file of filesArray) {
+        const { width, height } = await getImgWH(file);
+        const isRotate = height > width;
+        const newPhoto = {
+          name: file.name,
+          url: URL.createObjectURL(file),
+          isRotate: isRotate,
+        };
+        previewPhotoDate.push(newPhoto);
+      }
+      setCatPhotos((prev) => [...prev, ...previewPhotoDate]);
+      e.target.value = "";
+    },
+    [getImgWH],
   );
   return (
     <div className={styles.wapper}>
@@ -63,11 +89,15 @@ function App() {
             고양이 추가
           </label>
         </div>
-        <CatPhotoList list={catPhotos} setCurrentCat={setCurrentCat} />
       </div>
       <div className={styles.container}>
         {/* 쓰다듬기 버튼이랑 container랑 분리하고 싶었음 */}
-        <PetCat isMoving={isMoving} catImg={currentCat} />
+        <div className={styles.PetCat}>
+          <PetCat isMoving={isMoving} catImg={currentCat} />
+        </div>
+      </div>
+      <div className={styles.CatPhotoList}>
+        <CatPhotoList list={catPhotos} setCurrentCat={setCurrentCat} />
       </div>
     </div>
   );

@@ -10,6 +10,7 @@
 }
 .petHand img {
   width: 100%;
+  max-width: 300px;
 }
 .catImg {
   transition: transform 0.4s ease-in-out;
@@ -17,6 +18,7 @@
 }
 .catImg img {
   width: 100%;
+  max-width: 18.75rem;
 }
 /* ================================================================ */
 .activePetHand {
