@@ -10,7 +10,6 @@ export interface ICatPhoto {
 }
 
 function App() {
-  // const [changeColor, setChangeColor] = useState(0);
   const [isMoving, setIsMoving] = useState(false);
   const [catPhotos, setCatPhotos] = useState<ICatPhoto[]>([]);
   const [currentCat, setCurrentCat] = useState("../cat1.png");

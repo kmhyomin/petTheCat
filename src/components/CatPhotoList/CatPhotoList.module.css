@@ -56,8 +56,68 @@
   height: 100%;
   -webkit-user-drag: none;
 }
-.rotateThumbnail {
-  aspect-ratio: 9/16;
-  width: auto;
-  height: 10rem;
+/* ============================================================= */
+@media only screen and (max-width: 451px) {
+  .catPhotoList {
+    width: max-content;
+    height: 100%;
+  }
+
+  .frame {
+    height: 12.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .frame:active {
+    transform: translateY(-10%) translateX(8px);
+    transition: transform 0.1 ease-in-out;
+    color: #ffc400;
+  }
+  .drawerKnob {
+    width: 3rem;
+    background-color: #ffd95e;
+    border-radius: 20px 0 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+  }
+  .arrow {
+    width: 10rem;
+  }
+
+  .tract {
+    width: max-content;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding-left: 1rem;
+    align-items: center;
+    border: 1px solid #ffd95e;
+    background-color: rgba(255, 217, 94, 0.5);
+
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+
+  .tract li {
+    cursor: pointer;
+    box-shadow: inset;
+    user-select: none;
+    -webkit-user-drag: none;
+    height: 10rem;
+    width: auto;
+  }
+  .thumbnail {
+  }
+
+  .thumbnail img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    -webkit-user-drag: none;
+  }
 }
