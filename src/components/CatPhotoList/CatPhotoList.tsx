@@ -1,7 +1,12 @@
 import { useCallback, useRef, useState } from "react";
 import type { ICatPhoto } from "../../App";
 import styles from "./CatPhotoList.module.css";
-import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+import {
+  MdKeyboardArrowLeft,
+  MdKeyboardArrowRight,
+  MdKeyboardArrowDown,
+  MdKeyboardArrowUp,
+} from "react-icons/md";
 import useIsMobile from "../Hooks/useIsMobile";
 
 interface ICatPhotoList {
@@ -17,33 +22,31 @@ export const CatPhotoList = ({ list, setCurrentCat }: ICatPhotoList) => {
     setUseDrawerKnob((perv) => !perv);
   }, []);
 
-  console.log("sss useDrawerKnob:", useDrawerKnob);
+  // console.log("sss useDrawerKnob:", useDrawerKnob);
 
-  const handleScroll = useCallback( () => {
-
-  },[])
+  const handleScroll = useCallback(() => {}, []);
 
   return (
     <div className={styles.catPhotoList}>
       <div
         className={styles.frame}
         style={{
-          width: useDrawerKnob ? "100vw" : "",
+          width: isMobile ? "" : useDrawerKnob ? "100vw" : "",
+          height: isMobile && useDrawerKnob ? "100vh" : "",
         }}
       >
-        <button
-          className={styles.drawerKnob}
-          onClick={() => {
-            isGetOut();
-          }}
-        >
-          {useDrawerKnob ? <MdKeyboardArrowRight /> : <MdKeyboardArrowLeft />}
-        </button>
-        {useDrawerKnob && (
-          <ul className={styles.tract}
-          onScroll={handleScroll}
-            ref={scrollRef}
+        {!isMobile && (
+          <button
+            className={styles.drawerKnob}
+            onClick={() => {
+              isGetOut();
+            }}
           >
+            {useDrawerKnob ? <MdKeyboardArrowRight /> : <MdKeyboardArrowLeft />}
+          </button>
+        )}
+        {useDrawerKnob && (
+          <ul className={styles.tract} onScroll={handleScroll} ref={scrollRef}>
             {list.map((photo, index) => {
               return (
                 <li key={index} className={styles.thumbnail}>
@@ -57,14 +60,16 @@ export const CatPhotoList = ({ list, setCurrentCat }: ICatPhotoList) => {
             })}
           </ul>
         )}
-        <button
-          className={styles.drawerKnob}
-          onClick={() => {
-            isGetOut();
-          }}
-        >
-          {useDrawerKnob ? <MdKeyboardArrowRight /> : <MdKeyboardArrowLeft />}
-        </button>
+        {isMobile && (
+          <button
+            className={styles.MoDrawerKnob}
+            onClick={() => {
+              isGetOut();
+            }}
+          >
+            {useDrawerKnob ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}
+          </button>
+        )}
       </div>
     </div>
   );

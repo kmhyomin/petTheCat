@@ -57,27 +57,31 @@
   -webkit-user-drag: none;
 }
 /* ============================================================= */
-@media only screen and (max-width: 451px) {
+@media only screen and (max-width: 768px) {
   .catPhotoList {
     width: max-content;
     height: 100%;
   }
 
   .frame {
-    height: 12.5rem;
+    height: auto;
+    max-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-right: 1.6rem;
   }
   .frame:active {
-    transform: translateY(-10%) translateX(8px);
+    transform: translateX(-10%);
     transition: transform 0.1 ease-in-out;
     color: #ffc400;
   }
-  .drawerKnob {
-    width: 3rem;
+  .MoDrawerKnob {
+    width: 100%;
+    height: 2rem;
+    min-width: 18.9375rem;
     background-color: #ffd95e;
-    border-radius: 20px 0 0 20px;
+    border-radius: 0 0 20px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -89,35 +93,19 @@
   }
 
   .tract {
-    width: max-content;
-    height: auto;
+    width: 100%;
+    height: 100vh;
+    max-height: 100vh;
     display: flex;
     flex-direction: column;
+    justify-content: end;
     gap: 1.25rem;
-    padding-left: 1rem;
+    padding: 0rem 1rem 0rem 1rem;
     align-items: center;
     border: 1px solid #ffd95e;
     background-color: rgba(255, 217, 94, 0.5);
 
     user-select: none;
-    -webkit-user-drag: none;
-  }
-
-  .tract li {
-    cursor: pointer;
-    box-shadow: inset;
-    user-select: none;
-    -webkit-user-drag: none;
-    height: 10rem;
-    width: auto;
-  }
-  .thumbnail {
-  }
-
-  .thumbnail img {
-    display: block;
-    width: 100%;
-    height: 100%;
     -webkit-user-drag: none;
   }
 }
