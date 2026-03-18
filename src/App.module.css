@@ -10,12 +10,14 @@ button {
 }
 .wapper {
   width: 100%;
+  max-width: 1920px;
   height: 100vh;
   display: flex;
   align-items: center;
-  /* justify-content: space-between; */
+  justify-content: space-between;
   background-color: #a9ffb4;
   overflow: hidden;
+  position: relative;
 }
 
 .buttonContainer {
@@ -44,7 +46,11 @@ button {
   justify-content: center;
   align-items: center;
 }
-.listContainer{}
+.listContainer {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+}
 
 .thumbnail {
   width: 50px;

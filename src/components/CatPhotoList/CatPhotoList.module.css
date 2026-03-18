@@ -4,27 +4,50 @@
 }
 
 .frame {
-  width: max-content;
+  height: 12.5rem;
   display: flex;
 }
-.drawerKnob{
-  
+.frame:active {
+  transform: translateY(-10%) translateX(8px);
+  transition: transform 0.1s ease-in-out;
+  color: #ffc400;
+}
+.drawerKnob {
+  width: 3rem;
+  background-color: #ffd95e;
+  border-radius: 20px 0 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+}
+.arrow {
+  width: 10rem;
 }
 
 .tract {
-  position: relative;
-  width: 10rem;
-  height: 16rem;
-  transform-style: preserve-3d;
-  transition: transform 0.5s ease-out;
-  padding: 0;
+  width: 100%;
+  display: flex;
+  gap: 1.25rem;
+  padding-left: 1rem;
+  align-items: center;
+  border: 1px solid #ffd95e;
+  background-color: rgba(255, 217, 94, 0.5);
+
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 .tract li {
   cursor: pointer;
+  box-shadow: inset;
+  user-select: none;
+  -webkit-user-drag: none;
+  height: 10rem;
+  width: auto;
 }
 .thumbnail {
-  width: 10rem;
 }
 
 .thumbnail img {
