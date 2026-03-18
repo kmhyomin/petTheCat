@@ -65,7 +65,8 @@ button {
   }
   .buttonContainer {
     width: 100%;
-    padding-top: 5rem;
+    height: auto;
+    padding-top: 2.5rem;
   }
   .listContainer {
     height: auto;
