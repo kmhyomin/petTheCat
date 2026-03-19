@@ -1,0 +1,22 @@
+button {
+  all: unset;
+}
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: left;
+}
+.petBtn,
+.addCatBtn {
+  padding: 0.5rem;
+  width: 6.8125rem;
+  border-radius: 0 20px 20px 0;
+  background-color: bisque;
+  cursor: pointer;
+  white-space: nowrap;
+  text-align: center;
+
+  user-select: none;
+  -webkit-user-select: none; /* Safari 브라우저 지원 */
+}
