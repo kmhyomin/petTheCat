@@ -7,11 +7,6 @@
   height: 12.5rem;
   display: flex;
 }
-.frame:active {
-  transform: translateY(-10%) translateX(8px);
-  transition: transform 0.1s ease-in-out;
-  color: #ffc400;
-}
 .drawerKnob {
   width: 3rem;
   background-color: #ffd95e;
@@ -26,50 +21,80 @@
   width: 10rem;
 }
 
+/* ... 기존 .catPhotoList, .frame, .drawerKnob 스타일은 그대로 둬 ... */
+
 .tract {
   width: 100%;
   display: flex;
   gap: 1.25rem;
-  padding-left: 1rem;
+  padding: 0 1rem; /* 상하는 0, 좌우는 1rem */
   align-items: center;
-  border: 1px solid #ffd95e;
+  border: 2px solid #ffd95e;
   background-color: rgba(255, 217, 94, 0.5);
 
-  user-select: none;
-  -webkit-user-drag: none;
+  /* 🔥 드래그 스크롤을 위한 핵심 설정 */
+  overflow-x: auto; /* 가로 스크롤 허용 */
+  white-space: nowrap; /* 아이템들이 줄바꿈되지 않게 */
+  cursor: grab; /* 기본은 손바닥 모양 */
+  scrollbar-width: none; /* 파이어폭스 스크롤바 숨기기 */
+  user-select: none; /* 텍스트 선택 방지 */
 }
 
-.tract li {
-  cursor: pointer;
-  box-shadow: inset;
-  user-select: none;
-  -webkit-user-drag: none;
-  height: 10rem;
-  width: auto;
+/* 크롬, 사파리에서 스크롤바 안 보이게 */
+.tract::-webkit-scrollbar,
+.MoTrack::-webkit-scrollbar {
+  display: none;
 }
-.thumbnail {
+
+/* 🖱️ 마우스 꾹 눌렀을 때 (JS에서 클래스 추가됨) */
+.active {
+  cursor: grabbing;
 }
 
 .thumbnail img {
   display: block;
   width: 100%;
   height: 100%;
+  object-fit: cover;
   -webkit-user-drag: none;
+  user-drag: none;
+  pointer-events: none;
 }
-/* ============================================================= */
-@media only screen and (max-width: 768px) {
-  .catPhotoList {
-    width: max-content;
-    height: 100%;
-  }
 
-  .frame {
-    height: auto;
-    max-height: 100vh;
+.thumbnail {
+  width: auto;
+  height: 9rem;
+  cursor: pointer;
+}
+
+/* ======================== @media ============================= */
+
+@media only screen and (max-width: 768px) {
+  .MoTrack {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-right: 1.6rem;
+    gap: 1rem;
+    padding: 1rem;
+
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    cursor: grab;
+
+    border: 2px solid #ffd95e;
+    background-color: rgba(255, 217, 94, 0.5);
+    margin-top: -1rem;
+    padding-top: 2rem;
+  }
+
+  .MoTrack.active {
+    cursor: grabbing;
+  }
+
+  .frame {
+    display: flex;
+    flex-direction: column;
   }
   .frame:active {
     transform: translateX(-10%);
@@ -87,25 +112,15 @@
     align-items: center;
 
     cursor: pointer;
+    position: relative;
+    z-index: 2;
   }
   .arrow {
     width: 10rem;
   }
-
-  .tract {
-    width: 100%;
-    height: 100vh;
-    max-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    gap: 1.25rem;
-    padding: 0rem 1rem 0rem 1rem;
-    align-items: center;
-    border: 1px solid #ffd95e;
-    background-color: rgba(255, 217, 94, 0.5);
-
-    user-select: none;
-    -webkit-user-drag: none;
+  .thumbnail {
+    width: 10rem;
+    height: auto;
+    cursor: pointer;
   }
 }

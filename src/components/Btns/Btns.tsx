@@ -1,13 +1,16 @@
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import type { ICatPhoto } from "../../App";
 import styles from "./Btns.module.css";
 
 interface IBtnsProps {
   PetPet: () => void;
   onUpload: React.Dispatch<React.SetStateAction<ICatPhoto[]>>;
+  setRed: React.Dispatch<React.SetStateAction<number>>;
 }
 
-export default function Btns({ PetPet, onUpload }: IBtnsProps) {
+export default function Btns({ PetPet, onUpload, setRed }: IBtnsProps) {
+  const [clickCount, setClickCount] = useState(0);
+
   const getImgWH = useCallback(
     (file: File): Promise<{ width: number; height: number }> => {
       return new Promise((resolve, reject) => {
@@ -28,6 +31,7 @@ export default function Btns({ PetPet, onUpload }: IBtnsProps) {
     },
     [],
   );
+
   const handleFileUpload = useCallback(
     async (e: React.ChangeEvent<HTMLInputElement>) => {
       const files = e.currentTarget.files;
@@ -54,10 +58,21 @@ export default function Btns({ PetPet, onUpload }: IBtnsProps) {
     [getImgWH],
   );
 
+  const boomPet = useCallback(() => {
+    setClickCount(clickCount + 1);
+    if (clickCount >= 5) setRed((prev) => prev + 10);
+  }, [clickCount]);
+
   return (
     <>
       <div className={styles.buttonContainer}>
-        <div className={styles.petBtn} onClick={PetPet}>
+        <div
+          className={styles.petBtn}
+          onClick={() => {
+            PetPet();
+            boomPet();
+          }}
+        >
           쓰다듬기
         </div>
         <div className={styles.addCatBtn}>

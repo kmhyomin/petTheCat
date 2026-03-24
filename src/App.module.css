@@ -42,7 +42,6 @@ button {
 
 @media only screen and (max-width: 768px) {
   .wapper {
-    display: flex;
     flex-direction: column;
   }
   .buttonContainer {
