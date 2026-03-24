@@ -113,7 +113,7 @@
 
     cursor: pointer;
     position: relative;
-    z-index: 2;
+    z-index: 3;
   }
   .arrow {
     width: 10rem;
