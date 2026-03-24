@@ -1,5 +1,4 @@
 .catPhotoList {
-  width: max-content;
   height: 100%;
 }
 
@@ -119,9 +118,9 @@
     width: 10rem;
   }
   .thumbnail {
+    flex-shrink: 0;
     width: 10rem;
     height: auto;
     cursor: pointer;
-    flex-shrink: 0;
   }
 }
