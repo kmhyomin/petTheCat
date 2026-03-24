@@ -31,12 +31,9 @@
   border: 2px solid #ffd95e;
   background-color: rgba(255, 217, 94, 0.5);
 
-  /* 🔥 드래그 스크롤을 위한 핵심 설정 */
-  overflow-x: auto; /* 가로 스크롤 허용 */
-  white-space: nowrap; /* 아이템들이 줄바꿈되지 않게 */
-  cursor: grab; /* 기본은 손바닥 모양 */
+  overflow-x: auto;
+  white-space: nowrap;
   scrollbar-width: none; /* 파이어폭스 스크롤바 숨기기 */
-  user-select: none; /* 텍스트 선택 방지 */
 }
 
 /* 크롬, 사파리에서 스크롤바 안 보이게 */
@@ -45,18 +42,11 @@
   display: none;
 }
 
-/* 🖱️ 마우스 꾹 눌렀을 때 (JS에서 클래스 추가됨) */
-.active {
-  cursor: grabbing;
-}
-
 .thumbnail img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  -webkit-user-drag: none;
-  pointer-events: none;
 }
 
 .thumbnail {
