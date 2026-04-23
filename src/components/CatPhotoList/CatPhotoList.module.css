@@ -20,23 +20,20 @@
   width: 10rem;
 }
 
-/* ... 기존 .catPhotoList, .frame, .drawerKnob 스타일은 그대로 둬 ... */
-
 .tract {
   width: 100%;
   display: flex;
   gap: 1.25rem;
-  padding: 0 1rem; /* 상하는 0, 좌우는 1rem */
+  padding: 0 1rem;
   align-items: center;
   border: 2px solid #ffd95e;
   background-color: rgba(255, 217, 94, 0.5);
 
   overflow-x: auto;
   white-space: nowrap;
-  scrollbar-width: none; /* 파이어폭스 스크롤바 숨기기 */
+  scrollbar-width: none;
 }
 
-/* 크롬, 사파리에서 스크롤바 안 보이게 */
 .tract::-webkit-scrollbar,
 .MoTrack::-webkit-scrollbar {
   display: none;

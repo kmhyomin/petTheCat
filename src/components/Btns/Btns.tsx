@@ -1,16 +1,13 @@
-import { useCallback, useState } from "react";
-import type { ICatPhoto } from "../../App";
-import styles from "./Btns.module.css";
+import { useCallback } from 'react';
+import type { ICatPhoto } from '../../App';
+import styles from './Btns.module.css';
 
 interface IBtnsProps {
   PetPet: () => void;
   onUpload: React.Dispatch<React.SetStateAction<ICatPhoto[]>>;
-  setRed: React.Dispatch<React.SetStateAction<number>>;
 }
 
-export default function Btns({ PetPet, onUpload, setRed }: IBtnsProps) {
-  const [clickCount, setClickCount] = useState(0);
-
+export default function Btns({ PetPet, onUpload }: IBtnsProps) {
   const getImgWH = useCallback(
     (file: File): Promise<{ width: number; height: number }> => {
       return new Promise((resolve, reject) => {
@@ -23,7 +20,7 @@ export default function Btns({ PetPet, onUpload, setRed }: IBtnsProps) {
             resolve({ width: img.width, height: img.height });
           };
           img.onerror = () =>
-            reject("이미지의 width와 height를 읽어올 수 없습니다.");
+            reject('이미지의 width와 height를 읽어올 수 없습니다.');
           img.src = e.target?.result as string;
         };
         render.readAsDataURL(file);
@@ -53,41 +50,35 @@ export default function Btns({ PetPet, onUpload, setRed }: IBtnsProps) {
         previewPhotoDate.push(newPhoto);
       }
       onUpload((prev) => [...prev, ...previewPhotoDate]);
-      e.target.value = "";
+      e.target.value = '';
     },
     [getImgWH],
   );
-
-  const boomPet = useCallback(() => {
-    setClickCount(clickCount + 1);
-    if (clickCount >= 5) setRed((prev) => prev + 10);
-  }, [clickCount]);
 
   return (
     <>
       <div className={styles.buttonContainer}>
         <div
-          className={styles.petBtn}
+          className={styles.btn}
           onClick={() => {
             PetPet();
-            boomPet();
           }}
         >
           쓰다듬기
         </div>
-        <div className={styles.addCatBtn}>
+        <>
           <input
             type="file"
             multiple
             accept="image/*"
             onChange={handleFileUpload}
             id="file-upload"
-            style={{ display: "none" }}
+            style={{ display: 'none' }}
           />
-          <label htmlFor="file-upload" className={styles.addCatBtn}>
-            고양이 추가
+          <label htmlFor="file-upload" className={styles.btn}>
+            고양이 바꾸기
           </label>
-        </div>
+        </>
       </div>
     </>
   );

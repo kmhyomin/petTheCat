@@ -15,21 +15,21 @@
   max-width: 300px;
 }
 .catImg {
-  transition: transform 0.4s ease-in-out;
+  transition: transform 0.5s ease-in-out;
   transform-origin: bottom center;
 }
 .catImg img {
   width: 100%;
   max-width: 18.75rem;
 }
-/* ================================================================ */
 .activePetHand {
-  transform: translateY(240px); /* 아래로 30px 이동 */
+  transform: translateY(240px); 
 }
 .squeshCat {
   transform: scaleY(0.7) scaleX(1.5);
 }
 
+/* ================================================================ */
 @media only screen and (max-width: 768px) {
   .petCatBox {
     width: 100%;
@@ -56,6 +56,6 @@
     max-width: 18.75rem;
   }
   .activePetHand {
-    transform: translateY(190px); /* 기준치 200px, + -> 아래, - -> 위 */
+    transform: translateY(190px); 
   }
 }

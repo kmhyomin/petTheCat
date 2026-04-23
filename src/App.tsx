@@ -14,9 +14,6 @@ function App() {
   const [isMoving, setIsMoving] = useState(false);
   const [catPhotos, setCatPhotos] = useState<ICatPhoto[]>([]);
   const [currentCat, setCurrentCat] = useState("../cat1.png");
-  const [red, setRed] = useState(0);
-
-  // console.log("sss isMoving", isMoving);
 
   const handlePetPet = useCallback(() => {
     if (!isMoving) {
@@ -31,11 +28,11 @@ function App() {
   return (
     <div className={styles.wapper}>
       <div className={styles.buttonContainer}>
-        <Btns PetPet={handlePetPet} onUpload={setCatPhotos} setRed={setRed} />
+        <Btns PetPet={handlePetPet} onUpload={setCatPhotos} />
       </div>
       <div className={styles.container}>
         <div className={styles.PetCat}>
-          <PetCat isMoving={isMoving} catImg={currentCat} red={red} />
+          <PetCat isMoving={isMoving} catImg={currentCat} />
         </div>
       </div>
       <div className={styles.listContainer}>

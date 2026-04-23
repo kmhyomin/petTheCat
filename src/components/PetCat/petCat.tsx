@@ -3,18 +3,15 @@ import styles from "./petCat.module.css";
 interface IPetCatItem {
   isMoving: boolean;
   catImg?: string;
-  red: number;
 }
 
-export const PetCat = ({ isMoving, catImg, red }: IPetCatItem) => {
-  const boomPetStyle = {
-    color: `rgb(${red},0,0)`,
-  };
+export const PetCat = ({ isMoving, catImg,}: IPetCatItem) => {
+
+
   return (
     <div className={styles.petCatBox}>
       <div
         className={`${styles.petHand} ${isMoving ? styles.activePetHand : ""}`}
-        style={boomPetStyle}
       >
         <img src="./../petHand.png" alt="쓰다듬는 소온" />
       </div>
