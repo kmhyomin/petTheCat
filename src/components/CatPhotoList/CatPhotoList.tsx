@@ -7,7 +7,7 @@ import {
   MdKeyboardArrowDown,
   MdKeyboardArrowUp,
 } from "react-icons/md";
-import useIsMobile from "../Hooks/useIsMobile";
+import useIsMobile from "../../Hooks/useIsMobile";
 
 interface ICatPhotoList {
   list: ICatPhoto[];

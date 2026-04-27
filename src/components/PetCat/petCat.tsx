@@ -11,11 +11,12 @@ export const PetCat = ({ isMoving, catImg,}: IPetCatItem) => {
   return (
     <div className={styles.petCatBox}>
       <div
-        className={`${styles.petHand} ${isMoving ? styles.activePetHand : ""}`}
+        className={`${styles.petHand} ${isMoving ? styles.activePetHand : null}`}
+        style={{}}
       >
         <img src="./../petHand.png" alt="쓰다듬는 소온" />
       </div>
-      <div className={`${styles.catImg} ${isMoving ? styles.squeshCat : ""}`}>
+      <div className={`${styles.catImg} ${isMoving ? styles.squeshCat : null}`}>
         <img src={catImg} alt="쓰다듬기 위한 굉이 사진" />
       </div>
     </div>

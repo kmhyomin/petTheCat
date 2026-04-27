@@ -23,7 +23,7 @@
   max-width: 18.75rem;
 }
 .activePetHand {
-  transform: translateY(240px); 
+  transform: translateY(240px);
 }
 .squeshCat {
   transform: scaleY(0.7) scaleX(1.5);
@@ -56,6 +56,6 @@
     max-width: 18.75rem;
   }
   .activePetHand {
-    transform: translateY(190px); 
+    transform: translateY(10rem);
   }
 }

@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 import type { ICatPhoto } from '../../App';
 import styles from './Btns.module.css';
 
@@ -8,6 +8,7 @@ interface IBtnsProps {
 }
 
 export default function Btns({ PetPet, onUpload }: IBtnsProps) {
+  const [imgHeight, setImgHeight] = useState(0);
   const getImgWH = useCallback(
     (file: File): Promise<{ width: number; height: number }> => {
       return new Promise((resolve, reject) => {
@@ -48,6 +49,7 @@ export default function Btns({ PetPet, onUpload }: IBtnsProps) {
           isRotate: isRotate,
         };
         previewPhotoDate.push(newPhoto);
+        setImgHeight(height);
       }
       onUpload((prev) => [...prev, ...previewPhotoDate]);
       e.target.value = '';
@@ -62,6 +64,7 @@ export default function Btns({ PetPet, onUpload }: IBtnsProps) {
           className={styles.btn}
           onClick={() => {
             PetPet();
+            imgHeight;
           }}
         >
           쓰다듬기
