@@ -11,7 +11,7 @@ export interface ICatPhoto {
 }
 const defaultCat: ICatPhoto = {
   name: '기본고양이',
-  url: 'public/cat1.png',
+  url: '/cat1.png',
   isRotate: false,
 };
 // 슬라이드 바에 기본 고양이 넣을 iterface를 넣음
