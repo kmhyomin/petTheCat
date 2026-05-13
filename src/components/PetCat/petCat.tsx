@@ -1,12 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import styles from './petCat.module.css';
+import { useCat } from '../../Hooks/catContext.tsx';
 
-interface IPetCatItem {
-  isMoving: boolean;
-  catImg?: string;
-}
-
-export const PetCat = ({ isMoving, catImg }: IPetCatItem) => {
+export const PetCat = () => {
+  const { isMoving, currentCat } = useCat();
   const catRef = useRef<HTMLDivElement>(null);
   const [moveY, setMoveY] = useState(0);
 
@@ -43,8 +40,8 @@ export const PetCat = ({ isMoving, catImg }: IPetCatItem) => {
     console.log('moveY : ', moveY);
 
     return () => window.removeEventListener('resize', calcHeight);
-    // 뒷정리 코드임. 자세한 설명은 노션에...
-  }, [catImg]);
+    // 뒷정리 코드임. 자세한 설명은 26.05.13일자 노션에 있뜸!
+  }, [currentCat]);
 
   return (
     <div className={styles.petCatBox}>
@@ -58,7 +55,7 @@ export const PetCat = ({ isMoving, catImg }: IPetCatItem) => {
         className={`${styles.catImg} ${isMoving ? styles.squeshCat : null}`}
         ref={catRef}
       >
-        <img src={catImg} alt="쓰다듬기 위한 굉이 사진" />
+        <img src={currentCat} alt="쓰다듬기 위한 굉이 사진" />
       </div>
     </div>
   );

@@ -1,5 +1,4 @@
 import { useCallback, useRef, useState, type MouseEvent } from 'react';
-import type { ICatPhoto } from '../../App';
 import styles from './CatPhotoList.module.css';
 import {
   MdKeyboardArrowLeft,
@@ -8,13 +7,11 @@ import {
   MdKeyboardArrowUp,
 } from 'react-icons/md';
 import useIsMobile from '../../Hooks/useIsMobile';
+import { useCat } from '../../Hooks/catContext.tsx';
 
-interface ICatPhotoList {
-  list: ICatPhoto[];
-  setCurrentCat: (url: string) => void;
-}
+export const CatPhotoList = () => {
+  const { catPhotos, setCurrentCat } = useCat();
 
-export const CatPhotoList = ({ list, setCurrentCat }: ICatPhotoList) => {
   const [useDrawerKnob, setUseDrawerKnob] = useState(false);
   const scrollRef = useRef<HTMLUListElement>(null);
   const isMobile = useIsMobile();
@@ -95,7 +92,7 @@ export const CatPhotoList = ({ list, setCurrentCat }: ICatPhotoList) => {
             onMouseUp={onDragEnd}
             onMouseLeave={onDragEnd}
           >
-            {list.map((photo, index) => {
+            {catPhotos.map((photo, index) => {
               return (
                 <li key={index} className={styles.thumbnail}>
                   <img

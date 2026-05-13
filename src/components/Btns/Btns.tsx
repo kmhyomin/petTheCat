@@ -1,13 +1,10 @@
-import { useCallback, useState } from 'react';
-import type { ICatPhoto } from '../../App';
+import { useCallback, useContext, useState } from 'react';
 import styles from './Btns.module.css';
+import { useCat, type ICatPhoto } from '../../Hooks/catContext.tsx';
 
-interface IBtnsProps {
-  PetPet: () => void;
-  onUpload: React.Dispatch<React.SetStateAction<ICatPhoto[]>>;
-}
+export default function Btns() {
+  const { handlePetPet, setCatPhotos } = useCat();
 
-export default function Btns({ PetPet, onUpload }: IBtnsProps) {
   const [imgHeight, setImgHeight] = useState(0);
   const getImgWH = useCallback(
     (file: File): Promise<{ width: number; height: number }> => {
@@ -51,7 +48,7 @@ export default function Btns({ PetPet, onUpload }: IBtnsProps) {
         previewPhotoDate.push(newPhoto);
         setImgHeight(height);
       }
-      onUpload((prev) => [...prev, ...previewPhotoDate]);
+      setCatPhotos((prev) => [...prev, ...previewPhotoDate]);
       e.target.value = '';
     },
     [getImgWH],
@@ -63,7 +60,7 @@ export default function Btns({ PetPet, onUpload }: IBtnsProps) {
         <div
           className={styles.btn}
           onClick={() => {
-            PetPet();
+            handlePetPet();
             imgHeight;
           }}
         >
