@@ -9,11 +9,18 @@ export interface ICatPhoto {
   url: string;
   isRotate: boolean;
 }
-
+const defaultCat: ICatPhoto = {
+  name: '기본고양이',
+  url: '../public/cat1.png',
+  isRotate: false,
+};
+// 슬라이드 바에 기본 고양이 넣을 iterface를 넣음
 function App() {
   const [isMoving, setIsMoving] = useState(false);
-  const [catPhotos, setCatPhotos] = useState<ICatPhoto[]>([]);
-  const [currentCat, setCurrentCat] = useState('../cat1.png');
+  const [catPhotos, setCatPhotos] = useState<ICatPhoto[]>([defaultCat]);
+  const [currentCat, setCurrentCat] = useState(defaultCat.url);
+
+  const bgColor = '#fff';
 
   const handlePetPet = useCallback(() => {
     if (!isMoving) {
@@ -26,7 +33,10 @@ function App() {
   }, [isMoving]);
 
   return (
-    <div className={styles.wapper}>
+    <div
+      className={styles.wapper}
+      style={{ '--bgColor': `${bgColor}` } as React.CSSProperties}
+    >
       <div className={styles.buttonContainer}>
         <Btns PetPet={handlePetPet} onUpload={setCatPhotos} />
       </div>

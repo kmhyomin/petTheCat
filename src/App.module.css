@@ -11,8 +11,9 @@
   height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  background-color: var(--bgColor);
   background-color: #a9ffb4;
+  /* #a9ffb4 */
   overflow: hidden;
   position: relative;
 }
@@ -38,6 +39,15 @@ button {
   width: 50px;
   height: 50px;
 }
+.buttonContainer {
+  position: fixed;
+  z-index: 1;
+}
+
+/*계속 비대칭이길래 와이라노? 했는데
+  알고 봤더니 이미지 리스트는 포지션이 앱솔루트여서 
+*/
+
 /* =====media query========================================================== */
 
 @media only screen and (max-width: 768px) {

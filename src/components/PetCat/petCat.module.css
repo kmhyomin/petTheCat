@@ -27,7 +27,7 @@
   transform: translateY(var(--move-y, 200px));
 }
 .squeshCat {
-  transform: scaleY(0.7) scaleX(1.5);
+  transform: scaleY(0.7) scaleX(1.3);
 }
 
 /* ================================================================ */
