@@ -1,13 +1,13 @@
-import { useCallback, useRef, useState, type MouseEvent } from "react";
-import type { ICatPhoto } from "../../App";
-import styles from "./CatPhotoList.module.css";
+import { useCallback, useRef, useState, type MouseEvent } from 'react';
+import type { ICatPhoto } from '../../App';
+import styles from './CatPhotoList.module.css';
 import {
   MdKeyboardArrowLeft,
   MdKeyboardArrowRight,
   MdKeyboardArrowDown,
   MdKeyboardArrowUp,
-} from "react-icons/md";
-import useIsMobile from "../../Hooks/useIsMobile";
+} from 'react-icons/md';
+import useIsMobile from '../../Hooks/useIsMobile';
 
 interface ICatPhotoList {
   list: ICatPhoto[];
@@ -73,8 +73,8 @@ export const CatPhotoList = ({ list, setCurrentCat }: ICatPhotoList) => {
       <div
         className={styles.frame}
         style={{
-          width: isMobile ? "" : useDrawerKnob ? "100vw" : "",
-          height: isMobile && useDrawerKnob ? "100vh" : "",
+          width: isMobile ? '' : useDrawerKnob ? '100vw' : '',
+          height: isMobile && useDrawerKnob ? '100vh' : '',
         }}
       >
         <button

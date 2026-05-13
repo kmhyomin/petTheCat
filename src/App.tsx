@@ -1,8 +1,8 @@
-import { useCallback, useState } from "react";
-import styles from "./App.module.css";
-import { PetCat } from "./components/PetCat/petCat";
-import { CatPhotoList } from "./components/CatPhotoList/CatPhotoList";
-import Btns from "./components/Btns/Btns";
+import { useCallback, useState } from 'react';
+import styles from './App.module.css';
+import { PetCat } from './components/PetCat/petCat';
+import { CatPhotoList } from './components/CatPhotoList/CatPhotoList';
+import Btns from './components/Btns/Btns';
 
 export interface ICatPhoto {
   name: string;
@@ -13,7 +13,7 @@ export interface ICatPhoto {
 function App() {
   const [isMoving, setIsMoving] = useState(false);
   const [catPhotos, setCatPhotos] = useState<ICatPhoto[]>([]);
-  const [currentCat, setCurrentCat] = useState("../cat1.png");
+  const [currentCat, setCurrentCat] = useState('../cat1.png');
 
   const handlePetPet = useCallback(() => {
     if (!isMoving) {

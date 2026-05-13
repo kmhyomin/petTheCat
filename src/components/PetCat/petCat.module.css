@@ -13,6 +13,7 @@
 .petHand img {
   width: 100%;
   max-width: 300px;
+  transition: transform 0.3s ease-in-out;
 }
 .catImg {
   transition: transform 0.5s ease-in-out;
@@ -23,7 +24,7 @@
   max-width: 18.75rem;
 }
 .activePetHand {
-  transform: translateY(240px);
+  transform: translateY(var(--move-y, 200px));
 }
 .squeshCat {
   transform: scaleY(0.7) scaleX(1.5);
