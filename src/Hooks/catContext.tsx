@@ -23,16 +23,21 @@ interface ICatContextType {
   setIsBgChangeShow: React.Dispatch<React.SetStateAction<boolean>>;
   bgColor: string;
   setBgColor: React.Dispatch<React.SetStateAction<string>>;
+  ALotOfPalm: number;
+  setALotOfPalm: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export const CatContext = createContext<ICatContextType | null>(null);
 
 export const CatProvider = ({ children }: { children: React.ReactNode }) => {
   const [isMoving, setIsMoving] = useState(false);
+  const [isBgChangeShow, setIsBgChangeShow] = useState(false);
+
   const [catPhotos, setCatPhotos] = useState<ICatPhoto[]>([defaultCat]);
   const [currentCat, setCurrentCat] = useState(defaultCat.url);
   const [bgColor, setBgColor] = useState('#a9ffb4');
-  const [isBgChangeShow, setIsBgChangeShow] = useState(false);
+  const [ALotOfPalm, setALotOfPalm] = useState(1);
+
   const handlePetPet = useCallback(() => {
     if (!isMoving) {
       setIsMoving(true);
@@ -56,6 +61,8 @@ export const CatProvider = ({ children }: { children: React.ReactNode }) => {
         setIsBgChangeShow,
         bgColor,
         setBgColor,
+        ALotOfPalm,
+        setALotOfPalm,
       }}
     >
       {children}

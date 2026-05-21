@@ -3,7 +3,7 @@ import styles from './petCat.module.css';
 import { useCat } from '../../Hooks/catContext.tsx';
 
 export const PetCat = () => {
-  const { isMoving, currentCat } = useCat();
+  const { isMoving, currentCat, ALotOfPalm, setALotOfPalm } = useCat();
   const catRef = useRef<HTMLDivElement>(null);
   const [moveY, setMoveY] = useState(0);
 

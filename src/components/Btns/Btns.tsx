@@ -3,8 +3,14 @@ import styles from './Btns.module.css';
 import { useCat, type ICatPhoto } from '../../Hooks/catContext.tsx';
 
 export default function Btns() {
-  const { handlePetPet, setCatPhotos, isBgChangeShow, setIsBgChangeShow } =
-    useCat();
+  const {
+    handlePetPet,
+    setCatPhotos,
+    isBgChangeShow,
+    setIsBgChangeShow,
+    ALotOfPalm,
+    setALotOfPalm,
+  } = useCat();
 
   const [imgHeight, setImgHeight] = useState(0);
   const getImgWH = useCallback(
@@ -55,6 +61,11 @@ export default function Btns() {
     [getImgWH],
   );
 
+  const plamCount = () => {
+    setALotOfPalm((prev) => prev + 1);
+  };
+  console.log('여래신장!!', ALotOfPalm);
+
   return (
     <>
       <div className={styles.buttonContainer}>
@@ -85,6 +96,9 @@ export default function Btns() {
           onClick={() => setIsBgChangeShow(!isBgChangeShow)}
         >
           {isBgChangeShow ? <p>배경색 그만 바꾸기</p> : <p>배경색 바꾸기</p>}
+        </div>
+        <div className={styles.btn} onClick={plamCount}>
+          여래신장
         </div>
       </div>
     </>
