@@ -12,8 +12,6 @@
   display: flex;
   align-items: center;
   background-color: var(--bgColor);
-  background-color: #a9ffb4;
-  /* #a9ffb4 */
   overflow: hidden;
   position: relative;
 }
@@ -43,10 +41,11 @@ button {
   position: fixed;
   z-index: 1;
 }
-
-/*계속 비대칭이길래 와이라노? 했는데
-  알고 봤더니 이미지 리스트는 포지션이 앱솔루트여서 
-*/
+.BgColorChanger {
+  position: fixed;
+  top: 2%;
+  left: 2%;
+}
 
 /* =====media query========================================================== */
 
@@ -61,5 +60,11 @@ button {
   }
   .listContainer {
     height: auto;
+  }
+  .BgColorChanger {
+    position: fixed;
+    top: unset;
+    bottom: 3em;
+    left: 2em;
   }
 }

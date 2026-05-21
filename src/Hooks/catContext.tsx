@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useState } from 'react';
+import React, { createContext, useCallback, useContext, useState } from 'react';
 
 export interface ICatPhoto {
   name: string;
@@ -19,6 +19,10 @@ interface ICatContextType {
   setCatPhotos: React.Dispatch<React.SetStateAction<ICatPhoto[]>>;
   setCurrentCat: (url: string) => void;
   handlePetPet: () => void;
+  isBgChangeShow: boolean;
+  setIsBgChangeShow: React.Dispatch<React.SetStateAction<boolean>>;
+  bgColor: string;
+  setBgColor: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export const CatContext = createContext<ICatContextType | null>(null);
@@ -27,7 +31,8 @@ export const CatProvider = ({ children }: { children: React.ReactNode }) => {
   const [isMoving, setIsMoving] = useState(false);
   const [catPhotos, setCatPhotos] = useState<ICatPhoto[]>([defaultCat]);
   const [currentCat, setCurrentCat] = useState(defaultCat.url);
-
+  const [bgColor, setBgColor] = useState('#a9ffb4');
+  const [isBgChangeShow, setIsBgChangeShow] = useState(false);
   const handlePetPet = useCallback(() => {
     if (!isMoving) {
       setIsMoving(true);
@@ -47,6 +52,10 @@ export const CatProvider = ({ children }: { children: React.ReactNode }) => {
         setCatPhotos,
         setCurrentCat,
         handlePetPet,
+        isBgChangeShow,
+        setIsBgChangeShow,
+        bgColor,
+        setBgColor,
       }}
     >
       {children}

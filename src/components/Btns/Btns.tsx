@@ -3,7 +3,8 @@ import styles from './Btns.module.css';
 import { useCat, type ICatPhoto } from '../../Hooks/catContext.tsx';
 
 export default function Btns() {
-  const { handlePetPet, setCatPhotos } = useCat();
+  const { handlePetPet, setCatPhotos, isBgChangeShow, setIsBgChangeShow } =
+    useCat();
 
   const [imgHeight, setImgHeight] = useState(0);
   const getImgWH = useCallback(
@@ -79,6 +80,12 @@ export default function Btns() {
             고양이 바꾸기
           </label>
         </>
+        <div
+          className={styles.btn}
+          onClick={() => setIsBgChangeShow(!isBgChangeShow)}
+        >
+          배경색 바꾸기
+        </div>
       </div>
     </>
   );

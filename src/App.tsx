@@ -2,13 +2,14 @@ import styles from './App.module.css';
 import { PetCat } from './components/PetCat/petCat';
 import { CatPhotoList } from './components/CatPhotoList/CatPhotoList';
 import Btns from './components/Btns/Btns';
-import { CatProvider } from './Hooks/catContext.tsx';
+import { useCat } from './Hooks/catContext.tsx';
+import { BgColorChanger } from './components/BgColorChanger/BgColorChanger.tsx';
 
 function App() {
-  const bgColor = '#fff';
+  const { bgColor } = useCat();
 
   return (
-    <CatProvider>
+    <>
       <div
         className={styles.wapper}
         style={{ '--bgColor': `${bgColor}` } as React.CSSProperties}
@@ -24,8 +25,11 @@ function App() {
         <div className={styles.listContainer}>
           <CatPhotoList />
         </div>
+        <div className={styles.BgColorChanger}>
+          <BgColorChanger />
+        </div>
       </div>
-    </CatProvider>
+    </>
   );
 }
 
