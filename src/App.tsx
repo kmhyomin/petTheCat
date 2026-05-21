@@ -17,10 +17,8 @@ function App() {
         <div className={styles.buttonContainer}>
           <Btns />
         </div>
-        <div className={styles.container}>
-          <div className={styles.PetCat}>
-            <PetCat />
-          </div>
+        <div className={styles.PetCat}>
+          <PetCat />
         </div>
         <div className={styles.listContainer}>
           <CatPhotoList />

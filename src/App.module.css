@@ -12,19 +12,18 @@
   display: flex;
   align-items: center;
   background-color: var(--bgColor);
-  overflow: hidden;
-  position: relative;
+  justify-content: center;
 }
 
 button {
   all: unset;
 }
 
-.container {
+.protector {
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 .listContainer {
@@ -32,14 +31,19 @@ button {
   z-index: 2;
   right: 0;
 }
+.PetCat {
+  width: max-content;
+}
 
 .thumbnail {
   width: 50px;
   height: 50px;
 }
 .buttonContainer {
-  position: fixed;
+  position: absolute;
   z-index: 1;
+  width: max-content;
+  left: 0;
 }
 .BgColorChanger {
   position: fixed;

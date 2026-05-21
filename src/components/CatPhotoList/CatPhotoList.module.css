@@ -81,6 +81,7 @@
   .frame {
     display: flex;
     flex-direction: column;
+    height: 2rem;
   }
   .frame:active {
     transform: translateX(-10%);

@@ -4,13 +4,13 @@ button {
 .buttonContainer {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
   justify-content: left;
 }
 .btn {
   display: block;
   padding: 0.6rem;
-  width: 100%;
+  width: 7.5rem;
   border-radius: 0 20px 20px 0;
   background-color: bisque;
   cursor: pointer;

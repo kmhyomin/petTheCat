@@ -1,7 +1,7 @@
 .petCatBox {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
   user-select: none;
   -webkit-user-drag: none;
 }
@@ -39,7 +39,7 @@
   }
 
   .petHand {
-    width: 12rem;
+    width: 70%;
     transition: transform 0.2s ease-in-out;
     z-index: 1;
   }
@@ -48,7 +48,7 @@
     max-width: 300px;
   }
   .catImg {
-    width: 12rem;
+    width: 70%;
     transition: transform 0.4s ease-in-out;
     transform-origin: bottom center;
   }
