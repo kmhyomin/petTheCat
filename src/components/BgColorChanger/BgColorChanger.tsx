@@ -7,21 +7,19 @@ export const BgColorChanger = () => {
   const isMoblie = useIsMobile();
   if (!isBgChangeShow) return null;
 
+  const colorChanger = (color: any) => {
+    setBgColor(color.hex);
+  };
+
   return (
     <>
       {isMoblie ? (
         <div>
-          <CirclePicker
-            color={bgColor}
-            onChange={(color) => setBgColor(color.hex)}
-          />
+          <CirclePicker color={bgColor} onChange={colorChanger} />
         </div>
       ) : (
         <div>
-          <ChromePicker
-            color={bgColor}
-            onChange={(color) => setBgColor(color.hex)}
-          />
+          <ChromePicker color={bgColor} onChange={colorChanger} />
         </div>
       )}
     </>
