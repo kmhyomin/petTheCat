@@ -1,4 +1,4 @@
-import { useCallback, useContext, useState } from 'react';
+import { useCallback, useState } from 'react';
 import styles from './Btns.module.css';
 import { useCat, type ICatPhoto } from '../../Hooks/catContext.tsx';
 
@@ -84,7 +84,7 @@ export default function Btns() {
           className={styles.btn}
           onClick={() => setIsBgChangeShow(!isBgChangeShow)}
         >
-          배경색 바꾸기
+          {isBgChangeShow ? <p>배경색 그만 바꾸기</p> : <p>배경색 바꾸기</p>}
         </div>
       </div>
     </>
