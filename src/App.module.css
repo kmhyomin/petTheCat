@@ -19,6 +19,26 @@
 button {
   all: unset;
 }
+a {
+  all: unset;
+}
+
+.btn {
+  position: absolute;
+  top: 1rem;
+  right: 0;
+  display: block;
+  padding: 0.6rem;
+  width: 9.5rem;
+  border-radius: 20px 0 0 20px;
+  background-color: bisque;
+  cursor: pointer;
+  white-space: nowrap;
+  text-align: center;
+
+  user-select: none;
+  -webkit-user-select: none; /* Safari 브라우저 지원 */
+}
 
 .protector {
   width: 100%;
