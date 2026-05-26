@@ -8,8 +8,6 @@ export default function Btns() {
     setCatPhotos,
     isBgChangeShow,
     setIsBgChangeShow,
-    ALotOfPalm,
-    setALotOfPalm,
   } = useCat();
 
   const [imgHeight, setImgHeight] = useState(0);
@@ -39,8 +37,6 @@ export default function Btns() {
       const files = e.currentTarget.files;
       if (!files) return;
 
-      //e.currentTarget => input
-
       const filesArray = Array.from(files);
       const previewPhotoDate: ICatPhoto[] = [];
 
@@ -60,11 +56,6 @@ export default function Btns() {
     },
     [getImgWH],
   );
-
-  const plamCount = () => {
-    setALotOfPalm((prev) => prev + 1);
-  };
-  console.log('여래신장!!', ALotOfPalm);
 
   return (
     <>
@@ -97,9 +88,7 @@ export default function Btns() {
         >
           {isBgChangeShow ? <p>배경색 그만 바꾸기</p> : <p>배경색 바꾸기</p>}
         </div>
-        <div className={styles.btn} onClick={plamCount}>
-          여래신장
-        </div>
+        
       </div>
     </>
   );
