@@ -20,16 +20,14 @@ export const PetCat = () => {
   };
 
   useEffect(() => {
-    const imgElement = catRef.current?.querySelector('img');
-    if (imgElement) {
-      if (imgElement.complete) calcHeight();
-      else imgElement.onload = calcHeight;
-    }
-
     window.addEventListener('resize', calcHeight);
 
     return () => window.removeEventListener('resize', calcHeight);
   }, [currentCat]);
+
+  const handleImageLoad = () => {
+    calcHeight();
+  };
 
   return (
     <div className={styles.petCatBox}>
@@ -48,7 +46,11 @@ export const PetCat = () => {
         className={`${styles.catImg} ${isMoving ? styles.squeshCat : ''}`}
         ref={catRef}
       >
-        <img src={currentCat} alt="쓰다듬기 위한 굉이 사진" />
+        <img
+          src={currentCat}
+          alt="쓰다듬기 위한 굉이 사진"
+          onLoad={handleImageLoad}
+        />
       </div>
     </div>
   );
