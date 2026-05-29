@@ -88,11 +88,12 @@ a {
     flex-direction: column;
   }
   .buttonContainer {
-    width: 100%;
+    top: 3.5rem;
+    width: auto;
     height: auto;
-    padding-top: 2.5rem;
   }
   .listContainer {
+    top: 0;
     height: auto;
   }
   .BgColorChanger {
@@ -100,5 +101,20 @@ a {
     top: unset;
     bottom: 3em;
     left: 2em;
+  }
+  .PetCat {
+    height: max-content;
+    top: 30%;
+    position: absolute;
+  }
+  .btn {
+    top: 3.5rem;
+    right: 0;
+    width: max-content;
+    text-align: center;
+  }
+  .btn:hover {
+    transform: none !important;
+    box-shadow: none !important;
   }
 }

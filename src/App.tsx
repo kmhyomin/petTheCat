@@ -4,9 +4,11 @@ import { CatPhotoList } from './components/CatPhotoList/CatPhotoList';
 import Btns from './components/Btns/Btns';
 import { useCat } from './Hooks/catContext.tsx';
 import { BgColorChanger } from './components/BgColorChanger/BgColorChanger.tsx';
+import useIsMobile from './Hooks/useIsMobile.tsx';
 
 function App() {
   const { bgColor } = useCat();
+  const isMobile = useIsMobile();
 
   return (
     <div
@@ -31,7 +33,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          이미지 누끼따러 가기
+          {isMobile ? '누끼' : '누끼따러 가기'}
         </a>
       </div>
     </div>

@@ -5,11 +5,11 @@ import { useCat } from '../../Hooks/catContext.tsx';
 export const PetCat = () => {
   const { isMoving, currentCat } = useCat();
   const catRef = useRef<HTMLDivElement>(null);
-  const [moveY, setMoveY] = useState(0);
+  const [moveY, setMoveY] = useState<number>(0);
 
   const calcHeight = () => {
     const realHeight = catRef.current?.offsetHeight || 0;
-    const isHeightSmall = realHeight < 220;
+    const isHeightSmall = realHeight < 300;
 
     if (catRef.current) {
       setMoveY(realHeight * 0.6);
